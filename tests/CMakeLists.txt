@@ -32,12 +32,12 @@ download_library(
 set(SOURCE_LIST 
 	"main.cpp"
     "utils.hpp"
-    "{{tmplr.repo_name | lowercase }}.cpp"
+    "cls_example.cpp"
 )
 
 add_executable(tests ${SOURCE_LIST})
 target_compile_features(tests PRIVATE cxx_std_20)
-target_link_libraries(tests PRIVATE {{tmplr.repo_name | lowercase }} doctest::doctest)
+target_link_libraries(tests PRIVATE cls_example doctest::doctest)
 set_target_properties(tests PROPERTIES OUTPUT_NAME "Tests")
 set_target_properties(tests PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${PROJECT_EXE_DIR}")
 #add_test(NAME tests::doctest_all COMMAND tests)

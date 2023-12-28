@@ -1,19 +1,19 @@
 ﻿# ------------------------------------------------------------------------------ 
 #           File : CMakeLists.txt
-#         Author : {{ tmplr.owner_name }}
+#         Author : TBlauwe
 #    Description : Root cmake file.
 #
 #                  Available targets (excluding dependencies) :
-#                  * {{ tmplr.repo_name | lowercase }} : main library
+#                  * cls_example : main library
 #                  * tests, documentation, benchmarks are only available
 #                  when build as the main project.
 #
 #                  Noteworthy cmake folders :
 #                  * extern/ : contains cmake files to find dependencies using CPM.
-#                              Can be skipped by setting {{ tmplr.repo_name | CONSTANT_CASE }}_SKIP_DEPENDENCIES 
+#                              Can be skipped by setting CLS_EXAMPLE_SKIP_DEPENDENCIES 
 #
 #                  Noteworthy cmake options :
-#                  * {{ tmplr.repo_name | CONSTANT_CASE }}_SKIP_DEPENDENCIES : skip dependencies download and build (with CPM)
+#                  * CLS_EXAMPLE_SKIP_DEPENDENCIES : skip dependencies download and build (with CPM)
 #
 #                  Noteworthy defines :
 #                  * TRACY_ENABLE : If defined, instructions related to tracy will be included.
@@ -24,10 +24,10 @@ cmake_minimum_required (VERSION 3.17...3.26)
 include(cmake/prevent_in_source_build.cmake)
 
 # ----- Project information
-project({{ tmplr.repo_name | CONSTANT_CASE }}
+project(CLS_EXAMPLE
 	VERSION 0.1.0
-	DESCRIPTION "{{ tmplr.repo_desc }}"
-	HOMEPAGE_URL "{{ tmplr.repo_url }}"
+	DESCRIPTION "Here is an example of a generated project from the template."
+	HOMEPAGE_URL "git@github.com:TBlauwe/CLS_Example.git"
 	LANGUAGES C CXX
 )
 
@@ -42,7 +42,7 @@ if (PROJECT_IS_TOP_LEVEL)
 endif ()
 
 # --- Project options
-option({{ tmplr.repo_name | CONSTANT_CASE }}_SKIP_DEPENDENCIES "Disable automatic download of dependencies with CPM." ${PROJECT_IS_NOT_TOP_LEVEL})
+option(CLS_EXAMPLE_SKIP_DEPENDENCIES "Disable automatic download of dependencies with CPM." ${PROJECT_IS_NOT_TOP_LEVEL})
 
 
 # --- CMake tools
@@ -52,88 +52,88 @@ include(cmake/tools.cmake)
 # ------------------------------------------------------------------------------
 # --- Dependencies
 # ------------------------------------------------------------------------------
-if(NOT ${{{ tmplr.repo_name | CONSTANT_CASE }}_SKIP_DEPENDENCIES})
-	section(CHECK_START "Finding {{ tmplr.repo_name | lowercase }} dependencies")
+if(NOT ${CLS_EXAMPLE_SKIP_DEPENDENCIES})
+	section(CHECK_START "Finding cls_example dependencies")
 
-		unset({{ tmplr.repo_name | CONSTANT_CASE }}_DEPENDENCIES)
-		unset({{ tmplr.repo_name | CONSTANT_CASE }}_MISSING_DEPENDENCIES)
+		unset(CLS_EXAMPLE_DEPENDENCIES)
+		unset(CLS_EXAMPLE_MISSING_DEPENDENCIES)
 
 		# Add all your dependencies here (either as a subfile or directly, matter of preferences)
 		include(extern/misc.cmake)
 
 	end_section(
-		CONDITION NOT {{tmplr.repo_name | CONSTANT_CASE }}_MISSING_DEPENDENCIES
-		PASS "done. Dependencies : ${{{tmplr.repo_name | CONSTANT_CASE }}_DEPENDENCIES}"
-		FAIL "failed. Missing dependencies : ${{{tmplr.repo_name | CONSTANT_CASE }}_MISSING_DEPENDENCIES}"
+		CONDITION NOT CLS_EXAMPLE_MISSING_DEPENDENCIES
+		PASS "done. Dependencies : ${CLS_EXAMPLE_DEPENDENCIES}"
+		FAIL "failed. Missing dependencies : ${CLS_EXAMPLE_MISSING_DEPENDENCIES}"
 	)
 endif()
 
 
 # ------------------------------------------------------------------------------
-# --- Target : {{tmplr.repo_name | lowercase }}
+# --- Target : cls_example
 # ------------------------------------------------------------------------------
 # --- Sources
 SET(SOURCE_LIST
-    "src/{{tmplr.repo_name | lowercase }}.cpp"
+    "src/cls_example.cpp"
 )
 
 # --- Headers
 SET(HEADER_LIST
-    "include/{{tmplr.repo_name | lowercase }}/{{tmplr.repo_name | lowercase }}.hpp"
+    "include/cls_example/cls_example.hpp"
 )
 
 # --- Assets
 # No assets here
 
-section(CHECK_START "Configuring {{tmplr.repo_name | lowercase }}")
+section(CHECK_START "Configuring cls_example")
 
-	add_library ({{tmplr.repo_name | lowercase }} ${SOURCE_LIST} ${HEADER_LIST})
-	add_library({{tmplr.repo_name | lowercase }}::{{tmplr.repo_name | lowercase }} ALIAS {{tmplr.repo_name | lowercase }})
+	add_library (cls_example ${SOURCE_LIST} ${HEADER_LIST})
+	add_library(cls_example::cls_example ALIAS cls_example)
 
 	include(GenerateExportHeader)
 	generate_export_header(
-		{{tmplr.repo_name | lowercase }}
-		BASE_NAME {{tmplr.repo_name | CONSTANT_CASE }}
-		EXPORT_FILE_NAME export/{{tmplr.repo_name | lowercase }}/export.hpp
+		cls_example
+		BASE_NAME CLS_EXAMPLE
+		EXPORT_FILE_NAME export/cls_example/export.hpp
 	)
 
 	set_target_properties( 
-		{{tmplr.repo_name | lowercase }}
+		cls_example
 		PROPERTIES
 		CXX_VISIBILITY_PRESET hidden
 		VISIBILITY_INLINES_HIDDEN YES
 		VERSION "${PROJECT_VERSION}"
 		SOVERSION "${PROJECT_VERSION_MAJOR}"
-		EXPORT_NAME {{tmplr.repo_name | lowercase }}
-		OUTPUT_NAME {{tmplr.repo_name | lowercase }}
+		EXPORT_NAME cls_example
+		OUTPUT_NAME cls_example
 	)
 
 	target_include_directories(
-		{{tmplr.repo_name | lowercase }} 
-		${{{tmplr.repo_name | CONSTANT_CASE }}_WARNING_GUARD} PUBLIC 
+		cls_example 
+		${CLS_EXAMPLE_WARNING_GUARD} PUBLIC 
 		"$<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>"
 	)
 	target_include_directories(
-		{{tmplr.repo_name | lowercase }}
+		cls_example
 		SYSTEM PUBLIC
 		"$<BUILD_INTERFACE:${PROJECT_BINARY_DIR}/export>"
 	)
 
-	target_link_libraries({{tmplr.repo_name | lowercase }} PUBLIC 
+	target_link_libraries(cls_example PUBLIC 
 		misc_deps
 	)
 
-	target_compile_features({{tmplr.repo_name | lowercase }} PRIVATE cxx_std_20)
-	target_compile_options({{tmplr.repo_name | lowercase }} PUBLIC $<$<CXX_COMPILER_ID:MSVC>:/Zc:preprocessor>) # if using __VA_OPT__, we enforce latest preprocessor on MSVC
-	target_compile_options({{tmplr.repo_name | lowercase }} PUBLIC $<$<COMPILE_LANG_AND_ID:CXX,MSVC>:/permissive->) # being a cross-platform target, we enforce standards conformance on MSVC
+	target_compile_features(cls_example PRIVATE cxx_std_20)
+	target_compile_options(cls_example PUBLIC $<$<CXX_COMPILER_ID:MSVC>:/Zc:preprocessor>) # if using __VA_OPT__, we enforce latest preprocessor on MSVC
+	target_compile_options(cls_example PUBLIC $<$<COMPILE_LANG_AND_ID:CXX,MSVC>:/permissive->) # being a cross-platform target, we enforce standards conformance on MSVC
 
 	if(${PROJECT_IS_TOP_LEVEL})
-	  target_set_compile_warnings_cxx(TARGET {{tmplr.repo_name | lowercase }} SCOPE PRIVATE)
+	  target_set_compile_warnings_cxx(TARGET cls_example SCOPE PRIVATE)
 	endif()
 
 
 end_section( 
-	CONDITION TARGET {{tmplr.repo_name | lowercase }}
+	CONDITION TARGET cls_example
 	PASS "done."
 	FAIL "failed."
 )

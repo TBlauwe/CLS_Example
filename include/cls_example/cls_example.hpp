@@ -1,8 +1,8 @@
 /*****************************************************************//**
-@file   {{ tmplr.repo_name | lowercase}}.hpp
+@file   cls_example.hpp
 @brief  Main file.
 
-@defgroup {{ tmplr.namespace }} Your title
+@defgroup CLS_Example Your title
 
 @details 
 
@@ -14,29 +14,29 @@ Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deseru
 Usage:
 
 @code{.cpp}
-#include <{{tmplr.repo_name | lowercase}}/{{tmplr.repo_name | lowercase}}.hpp>
+#include <cls_example/cls_example.hpp>
 
-{{tmplr.namespace}}::success();
+CLS_Example::success();
 @endcode
  
-@author {{ tmplr.owner_name }}
-@date   {{ tmplr.now }}
+@author TBlauwe
+@date   28, December 2023
  *********************************************************************/
 #pragma once
-#include <{{tmplr.repo_name | lowercase}}/export.hpp>
+#include <cls_example/export.hpp>
 
 
 /**
-    @namespace {{tmplr.namespace}}
+    @namespace CLS_Example
     @brief Library namespace
 **/
-namespace {{tmplr.namespace}}
+namespace CLS_Example
 {
 	/**
 		@brief A simple function returning an int.
 		@return Always 1;
 	**/
-	{{tmplr.repo_name | CONSTANT_CASE}}_EXPORT
+	CLS_EXAMPLE_EXPORT
     int success();
 }
 
