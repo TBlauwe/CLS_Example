@@ -1,3 +1,5 @@
+![Version](https://img.shields.io/github/v/release/TBlauwe/CLS_Example?include_prereleases&style=for-the-badge)](https://github.com/TBlauwe/CLS_Example/releases)
+![MIT](https://img.shields.io/badge/license-MIT-blue.svg?style=for-the-badge)](https://github.com/TBlauwe/CLS_Example/blob/master/LICENSE)
 ![C++](https://img.shields.io/badge/c++%20Library-%2300599C.svg?style=for-the-badge&logo=cplusplus&logoColor=white)
 ![CMake](https://img.shields.io/badge/CMake-%232B2F33.svg?style=for-the-badge&logo=cmake)
 [![Documentation link](https://img.shields.io/badge/Documentation-blue?logo=readthedocs&logoColor=white&style=for-the-badge)](https://TBlauwe.github.io/CLS_Example/)
