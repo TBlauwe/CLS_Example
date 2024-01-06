@@ -2,9 +2,9 @@
 
 | | Windows | MacOs | Ubuntu |
 | --- | --- | --- | --- |
-| Clang |![Windows GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/TBlauwe/CLS_Example/windows.yaml?style=for-the-badge&logo=windows10) | ![Ubuntu GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/TBlauwe/CLS_Example/ubuntu.yaml?style=for-the-badge&logo=ubuntu&logoColor=white) | ![MacOS GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/TBlauwe/CLS_Example/ubuntu.yaml?style=for-the-badge&logo=apple&logoColor=white) |
-| GCC | | ![Ubuntu GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/TBlauwe/CLS_Example/ubuntu.yaml?style=for-the-badge&logo=ubuntu&logoColor=white) | ![MacOS GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/TBlauwe/CLS_Example/ubuntu.yaml?style=for-the-badge&logo=apple&logoColor=white) |
-| MSVC |![Windows GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/TBlauwe/CLS_Example/windows.yaml?style=for-the-badge&logo=windows10) | | |
+| Clang |![Windows GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/TBlauwe/CLS_Example/windows.yaml?style=for-the-badge) | ![Ubuntu GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/TBlauwe/CLS_Example/ubuntu.yaml?style=for-the-badge&logo=ubuntu&logoColor=white) | ![MacOS GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/TBlauwe/CLS_Example/ubuntu.yaml?style=for-the-badge&logo=apple&logoColor=white) |
+| GCC | | ![Ubuntu GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/TBlauwe/CLS_Example/ubuntu.yaml?style=for-the-badge) | ![MacOS GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/TBlauwe/CLS_Example/ubuntu.yaml?style=for-the-badge&logo=apple&logoColor=white) |
+| MSVC |![Windows GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/TBlauwe/CLS_Example/windows.yaml?style=for-the-badge) | | |
 
 
 <div align="center">
