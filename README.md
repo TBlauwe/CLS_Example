@@ -1,6 +1,6 @@
 # CLS_Example
 
-![C++](https://img.shields.io/badge/c++%20Library-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white)
+![C++](https://img.shields.io/badge/c++%20Library-%2300599C.svg?style=for-the-badge&logo=cpp&logoColor=white)
 [![Static Badge](https://img.shields.io/badge/Documentation-blue?logo=readthedocs&logoColor=white&style=for-the-badge)](https://TBlauwe.github.io/CLS_Example/)
 
 
