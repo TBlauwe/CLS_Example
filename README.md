@@ -1,5 +1,5 @@
 ![C++](https://img.shields.io/badge/c++%20Library-%2300599C.svg?style=for-the-badge&logo=cplusplus&logoColor=white)
-![CMake](https://img.shields.io/badge/CMake?logo=cmake&style=for-the-badge)
+![CMake](https://img.shields.io/badge/CMake.svg?style=for-the-badge&logo=cmake)
 
 # CLS_Example
 ![Windows GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/TBlauwe/CLS_Example/windows.yaml?style=flat-square&logo=windows10&label=Windows%20(Clang-cl%2C%20MSVC))
