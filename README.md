@@ -2,6 +2,17 @@
 
 <div align="center">
 
+![Windows GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/TBlauwe/CLS_Example/windows.yaml?style=for-the-badge&logo=windows10&label=Windows%20(Clang-cl%2C%20MSVC))
+![Ubuntu GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/TBlauwe/CLS_Example/ubuntu.yaml?style=for-the-badge&logo=ubuntu&logoColor=white&label=Ubuntu%20(Clang%2C%20GCC))
+![MacOS GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/TBlauwe/CLS_Example/ubuntu.yaml?style=for-the-badge&logo=apple&logoColor=white&label=MacOS%20(Clang%2C%20GCC))
+![Documentation GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/TBlauwe/CLS_Example/documentation.yaml?style=for-the-badge&logo=github&logoColor=white&label=Documentation)
+
+</br>
+
+![C++](https://img.shields.io/badge/c++%20Library-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white)
+[![Static Badge](https://img.shields.io/badge/Documentation-blue?logo=readthedocs&logoColor=white&style=for-the-badge)](https://TBlauwe.github.io/CLS_Example/)
+
+</br>
 [![Windows [Clang-cl & MSVC]](https://github.com/TBlauwe/CLS_Example/actions/workflows/windows.yaml/badge.svg)](https://github.com/TBlauwe/CLS_Example/actions/workflows/windows.yaml)
 [![Ubuntu & MacOS [Clang & GCC]](https://github.com/TBlauwe/CLS_Example/actions/workflows/ubuntu.yaml/badge.svg)](https://github.com/TBlauwe/CLS_Example/actions/workflows/ubuntu.yaml)
 [![Documentation build & deploy](https://github.com/TBlauwe/CLS_Example/actions/workflows/documentation.yaml/badge.svg)](https://github.com/TBlauwe/CLS_Example/actions/workflows/documentation.yaml)
