@@ -6,13 +6,14 @@
 | GCC | | ![Ubuntu GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/TBlauwe/CLS_Example/ubuntu.yaml?style=for-the-badge) | ![MacOS GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/TBlauwe/CLS_Example/ubuntu.yaml?style=for-the-badge&logo=apple&logoColor=white) |
 | MSVC |![Windows GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/TBlauwe/CLS_Example/windows.yaml?style=for-the-badge) | | |
 
-
-<div align="center">
-
 ![Windows GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/TBlauwe/CLS_Example/windows.yaml?style=for-the-badge&logo=windows10&label=Windows%20(Clang-cl%2C%20MSVC))
 ![Ubuntu GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/TBlauwe/CLS_Example/ubuntu.yaml?style=for-the-badge&logo=ubuntu&logoColor=white&label=Ubuntu%20(Clang%2C%20GCC))
 ![MacOS GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/TBlauwe/CLS_Example/ubuntu.yaml?style=for-the-badge&logo=apple&logoColor=white&label=MacOS%20(Clang%2C%20GCC))
 ![Documentation GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/TBlauwe/CLS_Example/documentation.yaml?style=for-the-badge&logo=github&logoColor=white&label=Documentation)
+
+<div align="center">
+
+
 
 </br>
 
