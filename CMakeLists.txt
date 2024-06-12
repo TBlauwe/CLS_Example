@@ -104,7 +104,7 @@ section(CHECK_START "Configuring cls_example")
 	target_compile_features(cls_example PRIVATE cxx_std_20)
 	target_compile_options(cls_example PUBLIC $<$<CXX_COMPILER_ID:MSVC>:/Zc:preprocessor>) # if using __VA_OPT__, we enforce latest preprocessor on MSVC
 	target_compile_options(cls_example PUBLIC $<$<COMPILE_LANG_AND_ID:CXX,MSVC>:/permissive->) # being a cross-platform target, we enforce standards conformance on MSVC
-	target_link_libraries(cls_example PUBLIC misc_deps)
+	target_link_libraries(cls_example PUBLIC core_dependencies)
 	target_include_directories(cls_example ${${PROJECT_NAME}_WARNING_GUARD} PUBLIC "$<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>")
 
 	option_define(cls_example ${PROJECT_NAME}_NO_ASSERT)
