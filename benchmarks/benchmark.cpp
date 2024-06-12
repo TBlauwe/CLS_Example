@@ -1,10 +1,10 @@
 #include <benchmark/benchmark.h>
-#include <{{tmplr.repo_name | lowercase}}/core.hpp>
+#include <cls_example/core.hpp>
 
 // Define another benchmark
 static void BM_Success(benchmark::State& state) {
 	for (auto _ : state)
-		{{tmplr.namespace}}::success();
+		CLS_Example::success();
 }
 BENCHMARK(BM_Success);
 

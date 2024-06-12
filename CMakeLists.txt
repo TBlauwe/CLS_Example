@@ -1,26 +1,26 @@
 ﻿# ------------------------------------------------------------------------------ 
 #           File : CMakeLists.txt
-#         Author : {{ tmplr.owner_name }}
+#         Author : TBlauwe
 #    Description : Root cmake file.
 #
 #                  Available targets (excluding dependencies) :
-#                  * {{ tmplr.repo_name | lowercase }} : main library
+#                  * cls_example : main library
 #                  * tests, documentation, benchmarks are only available
 #                  when build as the main project.
 #
 #                  Noteworthy cmake folders :
 #                  * cmake/  : Additional cmake files, mainly to de-clutter root CMakeLists.txt.
 #                  * extern/ : contains cmake files to find dependencies using CPM.
-#                              Can be skipped by setting {{ tmplr.repo_name | CONSTANT_CASE }}_DOWNLOAD_DEPENDENCIES 
+#                              Can be skipped by setting CLS_EXAMPLE_DOWNLOAD_DEPENDENCIES 
 #
 # ------------------------------------------------------------------------------
 cmake_minimum_required (VERSION 3.21...3.26)
 include(cmake/prevent_in_source_build.cmake)
 
 # ----- Project information
-project({{ tmplr.repo_name | CONSTANT_CASE }}
-	DESCRIPTION "{{ tmplr.repo_desc }}"
-	HOMEPAGE_URL "{{ tmplr.repo_url }}"
+project(CLS_EXAMPLE
+	DESCRIPTION "Repository generated from cpp_lib_starter template repository"
+	HOMEPAGE_URL "https://github.com/TBlauwe/CLS_Example"
 	LANGUAGES C CXX
 )
 
@@ -81,7 +81,7 @@ end_section()
 
 
 # ------------------------------------------------------------------------------
-# --- Target : {{tmplr.repo_name | lowercase }}
+# --- Target : cls_example
 # ------------------------------------------------------------------------------
 # --- Sources
 SET(SOURCE_LIST
@@ -90,30 +90,30 @@ SET(SOURCE_LIST
 
 # --- Headers
 SET(HEADER_LIST
-    "include/{{tmplr.repo_name | lowercase }}/core.hpp"
-    "include/{{tmplr.repo_name | lowercase }}/version.hpp"
+    "include/cls_example/core.hpp"
+    "include/cls_example/version.hpp"
 )
 
 # --- Assets
 # No assets here
 
-section(CHECK_START "Configuring {{tmplr.repo_name | lowercase }}")
+section(CHECK_START "Configuring cls_example")
 
-	add_library({{tmplr.repo_name | lowercase }} ${SOURCE_LIST} ${HEADER_LIST})
-	add_library({{tmplr.repo_name | lowercase }}::{{tmplr.repo_name | lowercase }} ALIAS {{tmplr.repo_name | lowercase }})
-	target_compile_features({{tmplr.repo_name | lowercase }} PRIVATE cxx_std_20)
-	target_compile_options({{tmplr.repo_name | lowercase }} PUBLIC $<$<CXX_COMPILER_ID:MSVC>:/Zc:preprocessor>) # if using __VA_OPT__, we enforce latest preprocessor on MSVC
-	target_compile_options({{tmplr.repo_name | lowercase }} PUBLIC $<$<COMPILE_LANG_AND_ID:CXX,MSVC>:/permissive->) # being a cross-platform target, we enforce standards conformance on MSVC
-	target_link_libraries({{tmplr.repo_name | lowercase }} PUBLIC misc_deps)
-	target_include_directories({{tmplr.repo_name | lowercase }} ${${PROJECT_NAME}_WARNING_GUARD} PUBLIC "$<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>")
+	add_library(cls_example ${SOURCE_LIST} ${HEADER_LIST})
+	add_library(cls_example::cls_example ALIAS cls_example)
+	target_compile_features(cls_example PRIVATE cxx_std_20)
+	target_compile_options(cls_example PUBLIC $<$<CXX_COMPILER_ID:MSVC>:/Zc:preprocessor>) # if using __VA_OPT__, we enforce latest preprocessor on MSVC
+	target_compile_options(cls_example PUBLIC $<$<COMPILE_LANG_AND_ID:CXX,MSVC>:/permissive->) # being a cross-platform target, we enforce standards conformance on MSVC
+	target_link_libraries(cls_example PUBLIC misc_deps)
+	target_include_directories(cls_example ${${PROJECT_NAME}_WARNING_GUARD} PUBLIC "$<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>")
 
-	option_define({{tmplr.repo_name | lowercase }} ${PROJECT_NAME}_NO_ASSERT)
+	option_define(cls_example ${PROJECT_NAME}_NO_ASSERT)
 
 	if(${PROJECT_IS_TOP_LEVEL})
 		include(cmake/target_set_compile_warnings.cmake)
-		target_set_compile_warnings_cxx(TARGET {{tmplr.repo_name | lowercase }} SCOPE PRIVATE)
-		target_compile_options({{tmplr.repo_name | lowercase }} PUBLIC $<$<CXX_COMPILER_ID:MSVC>:/ZI>)             # Needed to enable "Edit and Continue" for MSVC
-		target_compile_options({{tmplr.repo_name | lowercase }} PUBLIC $<$<CXX_COMPILER_ID:MSVC>:/INCREMENTAL>)    # Needed to enable "Edit and Continue" for MSVC
+		target_set_compile_warnings_cxx(TARGET cls_example SCOPE PRIVATE)
+		target_compile_options(cls_example PUBLIC $<$<CXX_COMPILER_ID:MSVC>:/ZI>)             # Needed to enable "Edit and Continue" for MSVC
+		target_compile_options(cls_example PUBLIC $<$<CXX_COMPILER_ID:MSVC>:/INCREMENTAL>)    # Needed to enable "Edit and Continue" for MSVC
 	endif()
 end_section()
 
@@ -123,20 +123,20 @@ end_section()
 # ------------------------------------------------------------------------------
 include(GenerateExportHeader)
 
-generate_export_header({{tmplr.repo_name | lowercase }} BASE_NAME ${PROJECT_NAME} EXPORT_FILE_NAME export/{{tmplr.repo_name | lowercase }}/export.hpp)
+generate_export_header(cls_example BASE_NAME ${PROJECT_NAME} EXPORT_FILE_NAME export/cls_example/export.hpp)
 
 set_target_properties(
-	{{tmplr.repo_name | lowercase }}
+	cls_example
 	PROPERTIES
 	CXX_VISIBILITY_PRESET hidden
 	VISIBILITY_INLINES_HIDDEN YES
 	VERSION "${PROJECT_VERSION}"
 	SOVERSION "${PROJECT_VERSION_MAJOR}"
-	EXPORT_NAME {{tmplr.repo_name | lowercase }}
-	OUTPUT_NAME {{tmplr.repo_name | lowercase }}
+	EXPORT_NAME cls_example
+	OUTPUT_NAME cls_example
 )
 
-target_include_directories({{tmplr.repo_name | lowercase }} SYSTEM PUBLIC "$<BUILD_INTERFACE:${PROJECT_BINARY_DIR}/export>")
+target_include_directories(cls_example SYSTEM PUBLIC "$<BUILD_INTERFACE:${PROJECT_BINARY_DIR}/export>")
 
 
 # ------------------------------------------------------------------------------

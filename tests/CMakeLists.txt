@@ -25,7 +25,7 @@ set(SOURCE_LIST
 
 add_executable(tests ${SOURCE_LIST})
 target_compile_features(tests PRIVATE cxx_std_20)
-target_link_libraries(tests PRIVATE {{tmplr.repo_name | lowercase }} Catch2::Catch2WithMain)
+target_link_libraries(tests PRIVATE cls_example Catch2::Catch2WithMain)
 set_target_properties(tests PROPERTIES OUTPUT_NAME "Tests")
 set_target_properties(tests PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${${PROJECT_NAME}_EXE_DIR}")
 

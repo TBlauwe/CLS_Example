@@ -38,7 +38,7 @@ set(SOURCE_LIST
 
 add_executable(benchmarks ${SOURCE_LIST} "scripts/continuous_benchmarking.py")
 target_compile_features(benchmarks PRIVATE cxx_std_20)
-target_link_libraries(benchmarks PRIVATE {{ tmplr.repo_name | lowercase }} benchmark::benchmark)
+target_link_libraries(benchmarks PRIVATE cls_example benchmark::benchmark)
 set_target_properties(benchmarks PROPERTIES OUTPUT_NAME ${BENCHMARKS_EXE_NAME})
 set_target_properties(benchmarks PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${${PROJECT_NAME}_EXE_DIR}")
 

@@ -2,7 +2,7 @@
 @file   core.hpp
 @brief  Main file.
 
-@defgroup {{ tmplr.namespace }} Topic's title
+@defgroup CLS_Example Topic's title
 
 @details 
 
@@ -14,23 +14,23 @@ Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deseru
 @example getting_started.cpp
 This is an example of how to get started with the library.
 
-@author {{ tmplr.owner_name }}
-@date   {{ tmplr.now }}
+@author TBlauwe
+@date   12, June 2024
  *********************************************************************/
 #pragma once
-#include <{{tmplr.repo_name | lowercase}}/export.hpp>
+#include <cls_example/export.hpp>
 
 
 /**
-    @namespace {{tmplr.namespace}}
+    @namespace CLS_Example
     @brief Library namespace
 **/
-namespace {{tmplr.namespace}}
+namespace CLS_Example
 {
 	/**
 		@brief A simple function returning an int.
 		@return Always 1;
 	**/
-	{{tmplr.repo_name | CONSTANT_CASE}}_EXPORT
+	CLS_EXAMPLE_EXPORT
     int success();
 }
