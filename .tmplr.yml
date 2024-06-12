@@ -1,0 +1,71 @@
+steps:
+
+    # --- IGNORE 
+  - remove: .vs/
+
+    # --- SET VARIABLES
+  - read: owner_name
+    from: env.owner_name
+    fallback:
+      from: git.author_name
+
+
+  - read: owner_email
+    from: env.owner_email
+    fallback:
+      from: git.author_email
+
+  - read: repo_name
+    from: env.repo_name
+    fallback:
+      from: git.remote_name
+      fallback:
+        from: filesystem.rootdir
+
+  - read: repo_desc
+    from: env.repo_desc
+ 
+  - read: repo_url
+    eval: 'https://github.com/{{ owner_name }}/{{ repo_name }}'
+        
+  - read: now
+    eval: '{{ datetime.now | datetime format: DD, MMMM Y}}'
+    
+  - read: namespace
+    from: env.namespace
+    fallback:
+      eval: '{{ repo_name }}'
+
+    # --- GENERATE FILES
+  - copy: template/README.md
+    to: README.md
+
+  - copy: template/cpp/include/core.hpp
+    to: 'include/{{ repo_name | lowercase }}/core.hpp'
+  - copy: template/cpp/src/**/*
+    to: 'src/'
+    
+  - copy: template/cpp/CMakeLists.txt
+    to: './CMakeLists.txt'
+
+  - copy: template/cpp/cmake/version_header.cmake
+    to: 'cmake/version_header.cmake'
+
+    # For benchmarks
+  - copy: template/cpp/benchmarks/**/*
+    to: benchmarks/
+    
+    # For tests
+  - copy: template/cpp/tests/**/*
+    to: tests/
+
+    # For examples
+  - copy: template/cpp/examples/**/*
+    to: examples/
+
+   
+    # --- CLEAN
+  - remove: docs/pages/reference.md
+  - remove: template/
+  - remove: LICENSE.txt
+  - remove: .tmplr.yml
